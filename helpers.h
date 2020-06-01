@@ -13,13 +13,13 @@
 void swap(int &a, int  &b){
     int temp = a;
     a = b;
-    b = temp
+    b = temp;
 }
 
 // swaps a and b if a > b
 void comp_swap(int &a, int &b){
     if(a > b){
-        swap(a, b)
+        swap(a, b);
     }
 }
 
