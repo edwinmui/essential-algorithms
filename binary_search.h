@@ -19,7 +19,6 @@
 int binary_search(std::vector<int> nums, int target, int left, int right){
     // gets the midpoint index b/e left and right
     int mid = (left + right) / 2;
-    
     // base case; if target is foun
     if(nums[mid] == target){
         return mid;
