@@ -10,6 +10,7 @@
 #include "catch.hpp"
 
 #include "binary_search.h"
+#include "bubble_sort.h"
 #include <iostream>
 
 void print_vec(std::vector<int> vec);
@@ -42,6 +43,38 @@ TEST_CASE("Test Binary Search"){
     int left3 = 0;
     int right3 = int(vec3.size()) - 1;
     REQUIRE(binary_search(vec3, target3, left3, right3) == -1);
+}
+
+TEST_CASE("Test Bubble Sort"){
+    // Test Even Vector
+    int arr[4] = {3, 1, 4, 2};
+    std::vector<int> vec;
+    fill_vec(arr, 4, vec);
+    int correct_arr[4] = {1, 2, 3, 4};
+    std::vector<int> correct_vec;
+    fill_vec(correct_arr, 4, correct_vec);
+    bubble_sort(vec);
+    REQUIRE(vec == correct_vec);
+    
+    // Test Odd Vector
+    int arr2[3] = {34, 12, 98};
+    std::vector<int> vec2;
+    fill_vec(arr2, 3, vec2);
+    int correct_arr2[3] = {12, 34, 98};
+    std::vector<int> correct_vec2;
+    fill_vec(correct_arr2, 3, correct_vec2);
+    bubble_sort(vec2);
+    REQUIRE(vec2 == correct_vec2);
+    
+    // Test Size Two
+    int arr3[2] = {1, 0};
+    std::vector<int> vec3;
+    fill_vec(arr3, 2, vec3);
+    int correct_arr3[2] = {0, 1};
+    std::vector<int> correct_vec3;
+    fill_vec(correct_arr3, 2, correct_vec3);
+    bubble_sort(vec3);
+    REQUIRE(vec3 == correct_vec3);
 }
     
 // EFFECTS: Prints out every item in vec
