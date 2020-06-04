@@ -11,6 +11,7 @@
 
 #include "binary_search.h"
 #include "bubble_sort.h"
+#include "insertion_sort.h"
 #include <iostream>
 
 void print_vec(std::vector<int> vec);
@@ -76,7 +77,39 @@ TEST_CASE("Test Bubble Sort"){
     bubble_sort(vec3);
     REQUIRE(vec3 == correct_vec3);
 }
+
+TEST_CASE("Test Insertion Sort"){
+    // Test Even Vector
+    int arr[4] = {3, 1, 4, 2};
+    std::vector<int> vec;
+    fill_vec(arr, 4, vec);
+    int correct_arr[4] = {1, 2, 3, 4};
+    std::vector<int> correct_vec;
+    fill_vec(correct_arr, 4, correct_vec);
+    insertion_sort(vec);
+    REQUIRE(vec == correct_vec);
     
+    // Test Odd Vector
+    int arr2[3] = {34, 12, 98};
+    std::vector<int> vec2;
+    fill_vec(arr2, 3, vec2);
+    int correct_arr2[3] = {12, 34, 98};
+    std::vector<int> correct_vec2;
+    fill_vec(correct_arr2, 3, correct_vec2);
+    insertion_sort(vec2);
+    REQUIRE(vec2 == correct_vec2);
+    
+    // Test Size Two
+    int arr3[2] = {1, 0};
+    std::vector<int> vec3;
+    fill_vec(arr3, 2, vec3);
+    int correct_arr3[2] = {0, 1};
+    std::vector<int> correct_vec3;
+    fill_vec(correct_arr3, 2, correct_vec3);
+    insertion_sort(vec3);
+    REQUIRE(vec3 == correct_vec3);
+}
+
 // EFFECTS: Prints out every item in vec
 void print_vec(std::vector<int> vec){
     for(int i = 0; i < vec.size(); ++i){
